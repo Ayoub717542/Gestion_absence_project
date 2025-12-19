@@ -1,4 +1,4 @@
-let data = JSON.parse(localStorage.getItem("data")) || [];
+let data = JSON.parse(localStorage.getItem("apprenants")) || [];
 const btn = document.getElementById("nav-toggle");
 const menu = document.getElementById("navbar-default");
 const change_mode=document.getElementById("change_mode");

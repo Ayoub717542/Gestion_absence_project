@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Document</title>
+</head>
+
+<body class="bg-sky-50 p-0" >
+ <header class="navbar">
+        <nav class="bg-neutral-primary  w-full z-20 top-0 start-0 border-b border-default">
+            <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+                <a href="DashBoerd.html" class="flex items-center space-x-3 rtl:space-x-reverse">
+                    <img class="w-16 sm:w-15 md:w-15 lg:w-15"  src="images/logo.png" class="h-7" />
+                </a>
+                <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-body rounded-base md:hidden hover:bg-neutral-secondary-soft hover:text-heading focus:outline-none focus:ring-2 focus:ring-neutral-tertiary" aria-controls="navbar-default" aria-expanded="false">
+                    <span class="sr-only">Open main menu</span>
+                    <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M5 7h14M5 12h14M5 17h14"/></svg>
+                </button>
+                <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+                <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-default rounded-base bg-neutral-secondary-soft md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-neutral-primary">
+                    <li><a href="#" class="block py-2 px-3 text-black bg-brand rounded md:bg-transparent md:text-fg-brand md:p-0" aria-current="page">Home</a></li>
+                    <li><a href="#" class="block py-2 px-3  text-heading  text-blue-500 rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 md:dark:hover:bg-transparent">apprenants</a></li>
+                    <li><a href="#" class="block py-2 px-3 text-heading text-blue-500 rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 md:dark:hover:bg-transparent">retards</a> </li>
+                    <li><a href="#" class="block py-2 px-3 text-heading text-blue-500 rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 md:dark:hover:bg-transparent">Historique</a></li>
+                </ul>
+                </div>
+            </div>
+        </nav>
+</header>
+    
+    <h3 class="text-4xl text-center py-2 mb-5">Apprenants</h3>
+    <div class="flex justify-center">
+        <button id="addBtn" class="bg-gray-800 text-white px-2 py-1 mb-1 rounded ">Ajouter</button>
+    </div>
+    <form id="form"></form>
+    <div class="overflow-x-auto flex justify-center">
+        <table class="md:table-fixed border-collapse ">
+            <thead class="bg-sky-500">
+                <tr> 
+                    <th class="border border-gray-900 px-10 py-1">ID</th> 
+                    <th class="border border-gray-900 px-10 py-1">Nom</th> 
+                    <th class="border border-gray-900 px-10 py-1">Prénom</th>
+                    <th class="border border-gray-900 px-10 py-1">Groupe</th>  
+                    <th class="border border-gray-900 px-10 py-1">Actions</th> 
+                </tr>
+            </thead> 
+            <tbody id="TableBody">
+            </tbody>
+        </table>
+    </div>
+<script src="script.js"></script>
+</body>
+</html>
