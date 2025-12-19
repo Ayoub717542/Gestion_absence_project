@@ -1,4 +1,4 @@
-let data = JSON.parse(localStorage.getItem("data")) || [];
+let data = JSON.parse(localStorage.getItem("apprenants")) || [];
 const btn = document.getElementById("nav-toggle");
 const menu = document.getElementById("navbar-default");
 const change_mode=document.getElementById("change_mode");
@@ -15,7 +15,7 @@ const dateInput   = document.getElementById('date_input');
 const absentInput = document.getElementById('absent_input');
 const retardInput = document.getElementById('retard_input');
 const motifInput  = document.getElementById('motif_input');
-
+document.getElementById("taille").textContent = data.length+" Memebers";
 change_mode.addEventListener("click",()=>{
     document.documentElement.classList.toggle("dark"); 
 })
