@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <div class=" min-h-full flex-col justify-center px-6 py-12 lg:px-8">
+        <div class="sm:mx-auto sm:w-full sm:max-w-sm">
+            <img src="images/utilisateur.svg" class="mx-auto h-10 w-auto" />
+            <h2 class=" text-center text-2xl/9 font-bold tracking-tight text-black">Connectez-vous à votre compte</h2>
+        </div>
+        <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+            <form class="space-y-6">
+                <div>
+                    <label for="Prenom2" class="block text-sm/6 font-medium text-black-100">Prénom</label>
+                    <div class="mt-2">
+                        <input id="prenom" name="Prenom" required autocomplete="prenom"
+                            class="block w-full rounded-md bg-black/5 px-3 py-1.5 text-base text-black outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500 sm:text-sm/6" />
+                    </div>
+                </div>
+                <div>
+                    <div class="flex items-center justify-between">
+                        <label for="password" class="block text-sm/6 font-medium text-black-100">Nom</label>
+                    </div>
+                    <div class="mt-2">
+                        <input id="nom" type="Nom" name="Nom" required autocomplete="current-password"
+                            class="block w-full rounded-md bg-black/5 px-3 py-1.5 text-base text-black outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500 sm:text-sm/6" />
+                    </div>
+                </div>
+                <div>
+                    <div class="flex items-center justify-between">
+                        <label for="password" class="block text-sm/6 font-medium text-black-100">Groupe</label>
+                    </div>
+                    <div class="mt-2">
+                        <select id="groupe"
+                            class="border px-2 py-1 rounded w-1/4 block w-full rounded-md bg-black/5 px-3 py-1.5 text-base text-black outline-1 -outline-offset-1 outline-white/10  focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500 sm:text-sm/6"
+                            required>
+                            <option value="">-- Choisir un groupe --</option>
+                            <option value="Groupe A">Groupe A</option>
+                            <option value="Groupe B">Groupe B</option>
+                            <option value="Groupe C">Groupe C</option>
+                            <option value="Groupe D">Groupe D</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="flex items-center justify-between">
+                        <label for="password" class="block text-sm/6 font-medium text-black">Mode de passe</label>
+                    </div>
+                    <div class="mt-2">
+                        <input id="password" type="password" name="password" required autocomplete="current-password"
+                            class="block w-full rounded-md bg-black/5 px-3 py-1.5 text-base text-black outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500 sm:text-sm/6" />
+                    </div>
+                </div>
+
+                <div>
+                    <button id="signUpbtn"
+                        class="flex w-full justify-center rounded-md bg-indigo-500 px-3 py-1.5 text-sm/6 font-semibold text-white hover:bg-indigo-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">Se
+                        connecter</button>
+                </div>
+            </form>
+            <p class="mt-10 text-center text-sm/6 text-gray-400">
+                Not a member?
+                <a href="login.html" class="font-semibold text-indigo-400 hover:text-indigo-300">Se connecter</a>
+            </p>
+        </div>
+    </div>
+    <script src="JS/sginUp.js"></script>
+</body>
+
+</html>
