@@ -6,17 +6,16 @@ afficher();
 document.getElementById("addBtn").addEventListener("click", () => {
     document.getElementById("addBtn").style.display='none'
 
-  form.innerHTML=`<form id="apprenantForm" class="max-w-sm maax-auto">
+  form.innerHTML=`<form id="apprenantForm" class="mx-w-sm mx-auto">
   <div class="mb-5 flex justify-center">
-   <input type="text" id="id" value="Id" class="border px-2 py-1 rounded w-1/4" required></div>
-   <div class="mb-5 flex justify-center"> 
+  <input type="text" id="id" value="Id" class="border px-2 py-1 rounded w-1/4" required></div>
+  <div class="mb-5 flex justify-center"> 
   <input type="text" id="nom" value="Nom" class="border px-2 py-1 rounded w-1/4" required></div>
   <div class="mb-5 flex justify-center"> 
   <input type="text" id="prenom" value="Prénom" class="border px-2 py-1 rounded w-1/4" required></div>
-
   <div class="mb-5 flex justify-center"> 
-  <select id="groupe" class="border px-2 py-1 rounded w-1/4" required> 
-  <option value="">-- Choisir un groupe --</option> 
+  <select id="groupe" class="border px-1 py-1 rounded w-1/4" required> 
+  <option >-- Choisir un groupe --</option> 
   <option value="Groupe A">Groupe A</option> 
   <option value="Groupe B">Groupe B</option> 
   <option value="Groupe C">Groupe C</option> 
@@ -34,7 +33,7 @@ form.addEventListener("submit",()=>{
     afficher();
 })
 function afficher() {
-    console.log(apprenants.length)
+        //document.getElementById("taille").textContent = apprenants.length+" Members";
         const tbody = document.getElementById("TableBody");
         tbody.innerHTML = "";
         apprenants.forEach((e,index) => {
