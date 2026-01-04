@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>ARG — Statistiques</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode: 'class' }
+  </script>
+</head>
+<body class="bg-sky-50 text-black dark:bg-gray-900 dark:text-white transition-colors">
+
+  <!-- navb seul -->
+  <header>
+    <nav class="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
+      <div class="flex flex-wrap items-center justify-between p-4">
+        <a href="index.html" class="flex items-center space-x-3">
+          <img src="images/logo.png" class="w-12 dark:invert" alt="Logo ARG">
+          
+        </a>
+        <ul class="flex space-x-4 items-center">
+          <li><a href="index.html" class="hover:text-blue-500">Home</a></li>
+          <li><a href="display.html" class="hover:text-blue-500">Apprenants</a></li>
+          <li><a href="retards.html" class="hover:text-blue-500">Retards</a></li>
+          <li><a href="historique.html" class="hover:text-blue-500">Historique</a></li>
+          <li><a href="statistiques.html" class="text-blue-600 font-semibold">Statistiques</a></li>
+          <li><img src="images/humain.svg" class="w-8 h-8 rounded-full" alt="User"></li>
+          <li><button id="change_mode"><img src="images/sombre.svg" class="w-8 h-8 dark:invert"></button></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- tous le Contenu -->
+  <main class="max-w-6xl mx-auto px-4 py-8">
+    <h1 class="text-2xl font-bold mb-6">Statistiques Générales</h1>
+
+    <!--  statistiques -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+      <div class="bg-white dark:bg-gray-800 p-4 rounded shadow">
+        <h2 class="font-semibold mb-2">Taux d'absence général</h2>
+        <p id="absenceRate" class="text-3xl font-bold text-blue-600">--%</p>
+      </div>
+      <div class="bg-white dark:bg-gray-800 p-4 rounded shadow">
+        <h2 class="font-semibold mb-2">Taux de retard général</h2>
+        <p id="retardRate" class="text-3xl font-bold text-blue-600">--%</p>
+      </div>
+      <div class="bg-white dark:bg-gray-800 p-4 rounded shadow">
+        <h2 class="font-semibold mb-2">Top 3 apprenants les plus absents</h2>
+        <ul id="topAbsents" class="list-disc pl-4"></ul>
+      </div>
+      <div class="bg-white dark:bg-gray-800 p-4 rounded shadow">
+        <h2 class="font-semibold mb-2">Top 3 apprenants les plus en retard</h2>
+        <ul id="topRetards" class="list-disc pl-4"></ul>
+      </div>
+    </div>
+
+    <!-- Moyenne heure arrivée -->
+    <div class="bg-white dark:bg-gray-800 p-4 rounded shadow">
+      <h2 class="font-semibold mb-2">Moyenne des heures d'arrivée des retardataires</h2>
+      <p id="avgHour" class="text-2xl font-bold text-blue-600">--:--</p>
+    </div>
+  </main>
+
+  
+  <script>
+    
+    const presences = [
+      { nom: "Anass", status: "Absent" },
+      { nom: "Amin", status: "Retard", heure: "12:10" },
+      { nom: "Aymane", status: "Absent" },
+      { nom: "Sara", status: "Présent" },
+      { nom: "Youssef", status: "Retard", heure: "12:15" },
+    ];
+
+    // Calcul stats
+    const total = presences.length;
+    const absents = presences.filter(p => p.status === "Absent").length;
+    const retards = presences.filter(p => p.status === "Retard").length;
+
+    const tauxAbsence = total ? ((absents / total) * 100).toFixed(1) : 0;
+    const tauxRetard = total ? ((retards / total) * 100).toFixed(1) : 0;
+
+    document.getElementById("absenceRate").textContent = tauxAbsence + "%";
+    document.getElementById("retardRate").textContent = tauxRetard + "%";
+
+    // Top  3 absents 
+    const absentsList = ["Anass Jabrane , Class1", "Amin zouhzouh , Class2", "Aymane amine , Class3"];
+    document.getElementById("topAbsents").innerHTML = absentsList.map(a => `<li>${a}</li>`).join("");
+
+    // Top retards 
+    const retardsList = [];
+    document.getElementById("topRetards").innerHTML = retardsList.length 
+      ? retardsList.map(r => `<li>${r}</li>`).join("") 
+      : "<li class='italic text-gray-500'>Pas encore de données</li>";
+
+    // Moyenne heure arV
+    const heures = presences.filter(p => p.status === "Retard").map(p => p.heure);
+    if (heures.length) {
+      const totalMinutes = heures.reduce((sum, h) => {
+        const [hh, mm] = h.split(":").map(Number);
+        return sum + hh * 60 + mm;
+      }, 0);
+      const avgMinutes = Math.round(totalMinutes / heures.length);
+      const hh = String(Math.floor(avgMinutes / 60)).padStart(2, "0");
+      const mm = String(avgMinutes % 60).padStart(2, "0");
+      document.getElementById("avgHour").textContent = `${hh}:${mm}`;
+    }
+
+    // Dark mode toggle
+    document.getElementById("change_mode").addEventListener("click", () => {
+      document.documentElement.classList.toggle("dark");
+      localStorage.setItem("theme", document.documentElement.classList.contains("dark") ? "dark" : "light");
+    });
+  </script>
+</body>
+</html>
