@@ -5,13 +5,12 @@ const password_input = document.getElementById("password");
 const loginbtn = document.getElementById("loginbtn")
 const message = document.getElementById("message")
 const role = document.getElementById("loginAs");
-loginbtn.addEventListener("click", login);
 
+loginbtn.addEventListener("click", login);
 const admins = [
   { prenom_admin: "samir", nom_admin: "samir", password_admin: "admin123" },
   { prenom_admin: "saad", nom_admin: "director", password_admin: "enaa2025" }
 ];
-
 function login() {
     let users = JSON.parse(localStorage.getItem("data")) || [];
     let found = users.find(user =>
